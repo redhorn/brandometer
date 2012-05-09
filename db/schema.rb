@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509125849) do
+ActiveRecord::Schema.define(:version => 20120509140300) do
 
   create_table "users", :force => true do |t|
     t.string   "name",            :limit => 100
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(:version => 20120509125849) do
     t.integer  "auth_level",                     :default => 1
     t.datetime "created_at",                                     :null => false
     t.datetime "updated_at",                                     :null => false
+    t.date     "dateofbirth"
+    t.integer  "gender"
+    t.string   "zipcode"
+    t.integer  "country_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

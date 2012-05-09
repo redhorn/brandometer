@@ -1,8 +1,8 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string :name, limit: 100
-      t.string :email, limit: 70, default: "", null: false
+      t.string :name, size: 100
+      t.string :email, size: 70, default: "", null: false
       t.string :password_digest
       t.string :remember_token
       t.integer :auth_level, default: 1

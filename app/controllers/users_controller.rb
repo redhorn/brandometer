@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :additional_info]
   before_filter :correct_user, only: [:edit, :update]
   before_filter :can_destroy, only: :destroy
 
@@ -24,8 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
+      redirect_to complete_path
     else
       render 'new'
     end
@@ -38,9 +37,14 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated"
       sign_in @user
-      redirect_to @user
+      if (params[:source] == "complete")
+        flash[:success] = "Welcome to Brand-o-meter!"
+        redirect_to root_path
+      else
+        flash[:success] = "Profile updated"
+        redirect_to edit_user_path
+      end
     else
       render 'edit'
     end
@@ -50,6 +54,10 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User destroyed."
     redirect_to users_path
+  end
+
+  def additional_info
+    @user = current_user
   end
 
   private
