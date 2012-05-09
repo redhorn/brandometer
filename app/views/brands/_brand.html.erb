@@ -1,0 +1,7 @@
+<li>
+  <%= link_to brand.name, brand %>
+  <% if current_user.admin? %>
+    | <%= link_to "Edit", edit_brand_path(brand) %>
+    | <%= link_to "Delete", brand, method: :delete, confirm: "You sure?" %>
+  <% end %>
+</li>

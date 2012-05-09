@@ -1,0 +1,31 @@
+<% provide(:title, "Edit #{@brand.name}") %>
+<h1>Update <%= @brand.name %></h1>
+
+<div class="row">
+  <div class="span6 offset3">
+  <%= form_for(@brand) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <div class="checkbox-group">
+      <label class="checkbox" for="brand_active">
+        <%= f.check_box :active %> Active
+      </label>
+
+      <label class="checkbox" for="brand_collecting">
+        <%= f.check_box :collecting %> Collecting
+      </label>
+    </div>
+
+    <%= f.label :elo, "ELO Rating" %>
+    <%= f.text_field :elo, disabled: true %>
+
+    <%= f.label :wr, "Weighted Rating" %>
+    <%= f.text_field :wr, disabled: true %>
+
+    <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+  <% end %>
+  </div>
+</div>
