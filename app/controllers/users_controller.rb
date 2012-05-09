@@ -39,14 +39,22 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       sign_in @user
       if (params[:source] == "complete")
-        flash[:success] = "Welcome to Brand-o-meter!"
+        if @user.complete?
+          flash[:success] = "Thank you for completing your profile, and welcome to Brand-o-meter!"
+        else
+          flash[:success] = "Welcome to Brand-o-meter!"
+        end
         redirect_to root_path
       else
         flash[:success] = "Profile updated"
         redirect_to edit_user_path
       end
     else
-      render 'edit'
+      if (params[:source] == "complete")
+        render 'additional_info'
+      else
+        render 'edit'
+      end
     end
   end
 
