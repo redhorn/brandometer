@@ -6,7 +6,7 @@
   <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <input type="hidden" name="source" value="complete">
+      <input type="hidden" name="source" value="finish">
 
       <%= f.label :dateofbirth, "Date of birth" %>
       <%= date_select :user, :dateofbirth, { start_year: Time.now.year, end_year: Time.now.year - 100, prompt: true}, { class: 'dateofbirth' } %>

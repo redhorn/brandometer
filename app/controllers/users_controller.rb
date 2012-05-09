@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      redirect_to complete_path
+      redirect_to finish_path
     else
       render 'new'
     end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       sign_in @user
-      if (params[:source] == "complete")
+      if (params[:source] == "finish")
         if @user.complete?
           flash[:success] = "Thank you for completing your profile, and welcome to Brand-o-meter!"
         else
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
         redirect_to edit_user_path
       end
     else
-      if (params[:source] == "complete")
+      if (params[:source] == "finish")
         render 'additional_info'
       else
         render 'edit'

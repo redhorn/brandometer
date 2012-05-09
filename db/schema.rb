@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509140300) do
+ActiveRecord::Schema.define(:version => 20120509194953) do
+
+  create_table "brands", :force => true do |t|
+    t.string   "name"
+    t.string   "uid"
+    t.boolean  "active",     :default => true
+    t.boolean  "collecting", :default => true
+    t.integer  "elo",        :default => 1500
+    t.float    "wr"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "brands", ["uid"], :name => "index_brands_on_uid", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name",            :limit => 100
