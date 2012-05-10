@@ -1,23 +1,48 @@
-<% unless signed_in? %>
-  <div class="center hero-unit">
-    <h1>Welcome to Brand-o-meter</h1>
+<div class="center hero-unit">
+<% if signed_in? %>
+  <h1>Brand-o-meter</h1>
 
-    <h2>
-      Join us on our quest to find out what people really think about brands!
-    </h2>
+  <h2>
+    Join us on our quest to find out what people really think about brands.
+  </h2>
 
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-  </div>
+  <p>
+    Begin by either <%= link_to "tagging", "#" %> or <%= link_to "rating", "#" %> a brand. Or let them <%= link_to "battle", "#" %> it out!
+  </p>
+<% else %>
+  <h1>Welcome to Brand-o-meter</h1>
+
+  <h2>
+    Join us on our quest to find out what people really think about brands.
+  </h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 <% end %>
+</div>
 <div class="row">
-  <div class="span4">
-    Tag!
+  <div class="span4 action-box">
+    <a href="#">
+      <div class="icon-holder">
+        <i class="icon-tag"></i>
+      </div>
+      <div class="action">Tag!</div>
+    </a>
   </div>
-  <div class="span4">
-    Rate!
+  <div class="span4 action-box">
+    <a href="#">
+      <div class="icon-holder">
+        <i class="icon-star"></i>
+      </div>
+      <div class="action">Rate!</div>
+    </a>
   </div>
-  <div class="span4">
-    Battle!
+  <div class="span4 action-box">
+    <a href="#">
+      <div class="icon-holder">
+        <i class="icon-fire"></i>
+      </div>
+      <div class="action">Battle!</div>
+    </a>
   </div>
 </div>
 

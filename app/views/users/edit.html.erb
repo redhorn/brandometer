@@ -1,4 +1,4 @@
-<% provide(:title, "Edit user") %>
+<% provide(:title, "Update profile") %>
 <% h1 = (current_user.admin? and !current_user?(@user)) ? "Edit user #{@user.name}" : "Update your profile" %>
 <h1><%= h1 %></h1>
 
@@ -35,7 +35,7 @@
 
     <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
 
-    <% if current_user.admin? and !current_user?(@user) %>
+    <% if current_user.admin? and !@user.admin? %>
       <%= link_to "Delete", @user, method: :delete, confirm: "You sure?", class: 'btn btn-large btn-danger pull-right' %>
     <% end %>
 

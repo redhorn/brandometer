@@ -13,6 +13,14 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
+@mixin border_radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -o-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
 /* universal */
 
 html {
@@ -164,6 +172,42 @@ select {
   @extend .control-group;
   @extend .error;
  }
+
+/* home page */
+.action-box {
+  a {
+    font-weight: bold;
+    letter-spacing: -1px;
+    background-color: $grayLighter;
+    padding: 10px 0 20px 0;
+    @include border_radius(5px);
+
+    .icon-holder {
+      color: $grayLight;
+      width: 100%;
+      text-align: center;
+
+      i {
+        font-size: 10em;
+        display: block;
+        line-height: 0.9em;
+      }
+    }
+  }
+
+  .action {
+    display: block;
+    font-size: 2em;
+    width: 100%;
+    line-height: normal;
+    text-align: center;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+}
 
 /* utilities */
 
