@@ -1,5 +1,6 @@
 <% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<% h1 = (current_user.admin? and !current_user?(@user)) ? "Edit user #{@user.name}" : "Update your profile" %>
+<h1><%= h1 %></h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -15,6 +16,11 @@
     <%= f.label :zipcode %>
     <%= f.text_field :zipcode, maxlength: 6 %>
 
+    <% if current_user.admin? %>
+      <%= f.label :auth_level, "Access level" %>
+      <%= select :user, :auth_level, 1..10, {}, { class: 'authlevel' } %>
+    <% end %>
+
     <%= f.label :name %>
     <%= f.text_field :name %>
 
@@ -28,6 +34,10 @@
     <%= f.password_field :password_confirmation %>
 
     <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+
+    <% if current_user.admin? and !current_user?(@user) %>
+      <%= link_to "Delete", @user, method: :delete, confirm: "You sure?", class: 'btn btn-large btn-danger pull-right' %>
+    <% end %>
 
     <!--<%= link_to("Permanently remove my account", @user, method: :delete, confirm: "You sure?", class: 'pull-right') %>-->
   <% end %>

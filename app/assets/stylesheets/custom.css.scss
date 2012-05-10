@@ -146,13 +146,8 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
 }
 
-
-
 select {
-  &.dateofbirth {
-    width: auto;
-  }
-  &.gender {
+  &.dateofbirth, &.gender, &.authlevel {
     width: auto;
   }
 }

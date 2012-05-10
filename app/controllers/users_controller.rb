@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :additional_info]
+  before_filter :admin_user, only: :index
   before_filter :correct_user, only: [:edit, :update]
   before_filter :can_destroy, only: :destroy
 
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      sign_in @user
+      sign_in @user if current_user?(@user)
       if (params[:source] == "finish")
         if @user.complete?
           flash[:success] = "Thank you for completing your profile, and welcome to Brand-o-meter!"
@@ -72,12 +73,16 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to root_path unless current_user?(@user)
+      redirect_to root_path unless current_user?(@user) or current_user.admin?
     end
 
     def can_destroy
       user = User.find(params[:id])
       redirect_to root_path unless current_user.admin? or current_user?(user)
+    end
+
+    def admin_user
+      redirect_to root_path unless current_user.admin?
     end
 
 end
