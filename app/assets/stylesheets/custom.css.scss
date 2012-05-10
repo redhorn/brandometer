@@ -165,6 +165,12 @@ select {
   @extend .error;
  }
 
+/* utilities */
+
+.nowrap {
+  white-space: nowrap;
+}
+
 /* media queries */
 
 

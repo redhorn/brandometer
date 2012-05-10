@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
+  #before_validation :secure_auth_level
   before_validation :cleanup_zipcode
   after_validation :format_zipcode
 
@@ -24,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def complete?
-    if zipcode.nil? or gender.nil? or dateofbirth.nil?
+    if zipcode.nil? or zipcode.empty? or gender.nil? or dateofbirth.nil?
       return false
     else
       return true
@@ -43,6 +44,12 @@ class User < ActiveRecord::Base
 
     def format_zipcode
       self.zipcode = self.zipcode.to_s.insert(3, ' ') if self.zipcode.to_s.length == 5
+    end
+
+    def secure_auth_level
+      unless self.admin?
+        self.auth_level = self.auth_level
+      end
     end
 
 end

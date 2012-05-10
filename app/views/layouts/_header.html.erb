@@ -22,7 +22,7 @@
             <% if current_user.admin? %>
             <li id="admin-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Admin <b class="caret"></b>
+                <%= icon_label("lock", "Admin") %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to icon_label("th-list", "List all brands"), brands_path %></li>

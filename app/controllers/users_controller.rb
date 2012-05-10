@@ -37,21 +37,27 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+
+    # Remove auth_level from the params hash and only allow admins to update this value
+    auth_level = params[:user].delete(:auth_level)
+    @user.auth_level = auth_level if auth_level and current_user.admin?
+
     if @user.update_attributes(params[:user])
+      # The remember token is reset on user save, sign in to get a new one
       sign_in @user if current_user?(@user)
-      if (params[:source] == "finish")
-        if @user.complete?
-          flash[:success] = "Thank you for completing your profile, and welcome to Brand-o-meter!"
-        else
-          flash[:success] = "Welcome to Brand-o-meter!"
-        end
+
+      # Store params[:source] to see if update was called from "Complete your profile"
+      source = params[:source]
+
+      if (source == "finish")
+        flash[:success] = (@user.complete?) ? "Thank you for completing your profile, and welcome to Brand-o-meter!" : "Welcome to Brand-o-meter!"
         redirect_to root_path
       else
         flash[:success] = "Profile updated"
         redirect_to edit_user_path
       end
     else
-      if (params[:source] == "finish")
+      if (source == "finish")
         render 'additional_info'
       else
         render 'edit'

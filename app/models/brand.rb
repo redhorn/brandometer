@@ -5,9 +5,18 @@ class Brand < ActiveRecord::Base
   before_save :create_uid
 
   validates :name, presence: true
+  validates :uid, uniqueness: true
+
+  HUMANIZED_ATTRIBUTES = {
+    uid: "Unique identifier"
+  }
 
   def to_param
     "#{self.uid.parameterize}"
+  end
+
+  def self.human_attribute_name(attribute, options = {})
+    HUMANIZED_ATTRIBUTES[attribute.to_sym] || super
   end
 
   private
@@ -17,8 +26,8 @@ class Brand < ActiveRecord::Base
     end
 
     def create_uid
-      self.uid = name.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/, '').downcase.to_s
-      self.uid = self.uid.gsub(/ /, '_')
+      self.uid ||= name
+      self.uid = self.uid.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/, '').downcase.to_s.gsub(/ /, '_')
     end
 
 end
