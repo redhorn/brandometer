@@ -1,1 +1,13 @@
-<%= @brand.inspect %>
+<% provide(:title, @brand.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @brand.name %>
+      </h1>
+      <%= logotype_for(@brand) %>
+    </section>
+  </aside>
+  <div class="span8">
+  </div>
+</div>
