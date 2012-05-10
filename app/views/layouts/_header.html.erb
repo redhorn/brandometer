@@ -4,19 +4,19 @@
       <%= link_to "Brand-o-meter", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Tag", "#" %></li>
-          <li><%= link_to "Rate", "#" %></li>
-          <li><%= link_to "Battle", "#" %></li>
+          <li><%= link_to icon_label("tag", "Tag"), "#" %></li>
+          <li><%= link_to icon_label("star", "Rate"), "#" %></li>
+          <li><%= link_to icon_label("fire", "Battle"), "#" %></li>
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><span>Logged in as: <%= current_user.name %></span></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li><span><%= icon_label("user", current_user.name) %></span></li>
+                <li><%= link_to icon_label("cog", "Settings"), edit_user_path(current_user) %></li>
                 <li class="divider"></li>
-                <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+                <li><%= link_to icon_label("signout", "Sign out"), signout_path, method: "delete" %></li>
               </ul>
             </li>
             <% if current_user.admin? %>
@@ -25,15 +25,15 @@
                 Admin <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "List brands", brands_path %></li>
-                <li><%= link_to "Create new brand", new_brand_path %></li>
+                <li><%= link_to icon_label("th-list", "List all brands"), brands_path %></li>
+                <li><%= link_to icon_label("plus", "Create new brand"), new_brand_path %></li>
                 <li class="divider"></li>
-                <li><%= link_to "List users", users_path %></li>
+                <li><%= link_to icon_label("user", "List all users"), users_path %></li>
               </ul>
             </li>
             <% end %>
           <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= link_to icon_label("signin", "Sign in"), signin_path %></li>
           <% end %>
         </ul>
       </nav>

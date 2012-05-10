@@ -1,3 +1,4 @@
+<% unless signed_in? %>
   <div class="center hero-unit">
     <h1>Welcome to Brand-o-meter</h1>
 
@@ -7,3 +8,16 @@
 
     <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
   </div>
+<% end %>
+<div class="row">
+  <div class="span4">
+    Tag!
+  </div>
+  <div class="span4">
+    Rate!
+  </div>
+  <div class="span4">
+    Battle!
+  </div>
+</div>
+
