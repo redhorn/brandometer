@@ -1,7 +1,7 @@
 module BrandsHelper
 
   def logotype_for(brand, options = {})
-    image_tag("logotypes/#{brand.uid}_logotype.png", options)
+    image_tag("logotypes/#{brand.uid}_logotype.png", options.merge({ class: "brand-logotype" }))
   end
 
   def tag_cloud_for(brand)
