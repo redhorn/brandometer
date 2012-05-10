@@ -1,6 +1,9 @@
 class Brand < ActiveRecord::Base
   attr_accessible :name, :uid, :active, :collecting, :elo, :wr
 
+  has_many :tag_occurrences
+  has_many :tags, through: :tag_occurrences
+
   before_save :cleanup_name
   before_save :create_uid
 

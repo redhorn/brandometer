@@ -27,6 +27,8 @@ class BrandsController < ApplicationController
   end
 
   def create
+    params[:brand].delete(:uid) if params[:brand][:uid].empty?
+
     @brand = Brand.new(params[:brand])
     if @brand.save
       flash[:success] = "Created brand: #{@brand.name}"

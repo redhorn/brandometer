@@ -1,0 +1,21 @@
+<% provide(:title, @brand.name) %>
+<h1><%= @brand.name %></h1>
+
+<div class="brand-container">
+  <%= logotype_for(@brand, class: "brand-logotype") %>
+
+  <h2>What's the first thing that comes to mind when you see this brand?</h2>
+  <p>(There is no right or wrong, but try to type a <strong>single word</strong> or a short phrase)</p>
+
+  <%= form_for(@tag, html: { class: "new_tag form-horizontal" }) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= hidden_field_tag "tag[brand]", @brand.id %>
+
+    <%= f.text_field :value, maxlength: 30, autocomplete: "off", autofocus: "autofocus" %>
+
+    <%= f.submit "Tag!", class: "btn btn-large btn-primary" %>
+    <%= f.button "Skip this one", class: "btn btn-large discourage" %>
+  <% end %>
+
+</div>

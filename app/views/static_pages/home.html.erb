@@ -7,7 +7,7 @@
   </h2>
 
   <p>
-    Begin by either <%= link_to "tagging", "#" %> or <%= link_to "rating", "#" %> a brand. Or let them <%= link_to "battle", "#" %> it out!
+    Begin by either <%= link_to "tagging", tags_path %> or <%= link_to "rating", "#" %> a brand. Or let them <%= link_to "battle", "#" %> it out!
   </p>
 <% else %>
   <h1>Welcome to Brand-o-meter</h1>
@@ -21,7 +21,7 @@
 </div>
 <div class="row">
   <div class="span4 action-box">
-    <a href="#">
+    <a href="<%= tags_path %>">
       <div class="icon-holder">
         <i class="icon-tag"></i>
       </div>

@@ -42,15 +42,15 @@ class UsersController < ApplicationController
     auth_level = params[:user].delete(:auth_level)
     @user.auth_level = auth_level if auth_level and current_user.admin?
 
+    # Store params[:source] to see if update was called from "Complete your profile"
+    source = params[:source]
+
     if @user.update_attributes(params[:user])
       # The remember token is reset on user save, sign in to get a new one
       sign_in @user if current_user?(@user)
 
-      # Store params[:source] to see if update was called from "Complete your profile"
-      source = params[:source]
-
       if (source == "finish")
-        flash[:success] = (@user.complete?) ? "Thank you for completing your profile, and welcome to Brand-o-meter!" : "Welcome to Brand-o-meter!"
+        flash[:success] = (@user.complete?) ? "Thank you for completing your profile, and welcome to Brand-o-meter!" : "You are now logged in. Welcome to Brand-o-meter!"
         redirect_to root_path
       else
         flash[:success] = "Profile updated"

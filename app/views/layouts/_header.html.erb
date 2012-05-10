@@ -4,7 +4,7 @@
       <%= link_to "Brand-o-meter", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to icon_label("tag", "Tag"), "#" %></li>
+          <li><%= link_to icon_label("tag", "Tag"), tags_path %></li>
           <li><%= link_to icon_label("star", "Rate"), "#" %></li>
           <li><%= link_to icon_label("fire", "Battle"), "#" %></li>
           <% if signed_in? %>

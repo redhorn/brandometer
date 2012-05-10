@@ -1,0 +1,9 @@
+# TODO
+## Brand-o-meter
+
+### Cosmetic
+
+#### Logotypes
+
+* Logotypes should fit in a container with fixed height to avoid rearranging page elements after they load
+
