@@ -20,7 +20,7 @@ class TagsController < ApplicationController
     @tag = Tag.find_or_create_by_value(params[:tag][:value].strip)
     TagOccurrence.create(brand: @brand, tag: @tag, user: current_user)
 
-    redirect_to tags_path
+    redirect_to tag_path
   end
 
 end
