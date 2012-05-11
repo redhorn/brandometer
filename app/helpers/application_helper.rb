@@ -9,8 +9,12 @@ module ApplicationHelper
     end
   end
 
+  def icon(icon)
+    %(<i class="icon-#{icon}"></i>).html_safe
+  end
+
   def icon_label(icon, label)
-    %(<i class="icon-#{icon}"></i> #{label}).html_safe
+    %(#{icon(icon)} #{label}).html_safe
   end
 
 end

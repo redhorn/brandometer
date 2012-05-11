@@ -46,6 +46,11 @@ textarea {
   }
 }
 
+footer {
+  float: left;
+  width: 100%;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -171,7 +176,51 @@ select {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
- }
+}
+
+.input-prepend .add-on {
+  min-width: 27px;
+  height: 18px;
+  padding: 9px 5px;
+  font-size: 20px;
+}
+
+.span6 {
+  /*, textarea, select, .uneditable-input*/
+  .add-on ~ input, .add-on ~ .field_with_errors input {
+    width: 422px;
+    height: 38px;
+  }
+}
+
+/* ratings */
+
+.rating-controls {
+  float: left;
+  width: 614px;
+  margin-left: 336px;
+  margin-bottom: 40px;
+
+  .btn {
+    margin-top: 10px;
+  }
+}
+
+a.btn-rating {
+  font-size: 80px;
+  text-decoration: none;
+  display: block;
+  float: left;
+
+  &.down {
+    margin-top: 11px;
+    margin-right: 30px;
+  }
+  &.up {
+    margin-top: -12px;
+    margin-left: 30px;
+  }
+}
 
 /* home page */
 .action-box {
@@ -227,10 +276,10 @@ select {
     input[type=text] {
       width: 300px;
     }
+  }
 
-    button.discourage, input.discourage {
-      color: $grayLight;
-    }
+  .discourage {
+    color: $grayLight;
   }
 
   .logotype-container {

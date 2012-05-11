@@ -6,17 +6,25 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, autofocus: "autofocus" %>
+      <div class="input-prepend">
+        <span class="add-on"><%= icon("user") %></span>
+        <%= f.text_field :name, autofocus: "autofocus", placeholder: "Name" %>
+      </div>
 
-      <%= f.label :email, "E-mail" %>
-      <%= f.text_field :email %>
+      <div class="input-prepend">
+        <span class="add-on"><%= icon("envelope") %></span>
+        <%= f.text_field :email, placeholder: "E-mail" %>
+      </div>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <div class="input-prepend">
+        <span class="add-on"><%= icon("key") %></span>
+        <%= f.password_field :password, placeholder: "Password" %>
+      </div>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      <div class="input-prepend">
+        <span class="add-on"><%= icon("key") %></span>
+        <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+      </div>
 
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>

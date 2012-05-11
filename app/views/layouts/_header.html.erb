@@ -5,7 +5,7 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to icon_label("tag", "Tag"), tag_path %></li>
-          <li><%= link_to icon_label("star", "Rate"), "#" %></li>
+          <li><%= link_to icon_label("star", "Rate"), rate_path %></li>
           <li><%= link_to icon_label("fire", "Battle"), "#" %></li>
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">

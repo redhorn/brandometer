@@ -3,6 +3,7 @@ class Brand < ActiveRecord::Base
 
   has_many :tag_occurrences
   has_many :tags, through: :tag_occurrences
+  has_many :ratings
 
   before_save :cleanup_name
   before_save :create_uid

@@ -5,11 +5,15 @@
   <div class="span6 offset3">
     <%= form_tag sessions_path do %>
 
-      <%= label_tag :email %>
-      <%= text_field_tag :email, "", autofocus: "autofocus" %>
+    <div class="input-prepend">
+      <span class="add-on"><%= icon("envelope") %></span>
+      <%= text_field_tag :email, "", placeholder: "E-mail", autofocus: "autofocus" %>
+    </div>
 
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
+    <div class="input-prepend">
+      <span class="add-on"><%= icon("key") %></span>
+      <%= password_field_tag :password, "", placeholder: "Password" %>
+    </div>
 
       <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
     <% end %>

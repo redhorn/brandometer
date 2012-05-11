@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :tag_occurrences
   has_many :tags, through: :tag_occurrences
+  has_many :ratings
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token

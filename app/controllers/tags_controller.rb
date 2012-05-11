@@ -1,10 +1,10 @@
 class TagsController < ApplicationController
 
-  def show
+  def new
     # Always redirect to a random brand if no id is provided
     if !params[:id]
       random_brand_uid = Brand.first(order: "RANDOM()").uid
-      redirect_to action: "show", id: random_brand_uid
+      redirect_to action: "new", id: random_brand_uid
       return
     end
 

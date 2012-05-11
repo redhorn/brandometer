@@ -1,0 +1,25 @@
+<% provide(:title, "Rate #{@brand.name}") %>
+<h1><%= @brand.name %></h1>
+
+<div class="brand-container">
+  <div class="logotype-container">
+    <%= logotype_for(@brand) %>
+  </div>
+
+  <%= form_for(@rating) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= hidden_field_tag "rating[brand]", @brand.id %>
+    <%= f.hidden_field :value %>
+
+    <div class="rating-controls">
+      <a href="#" class="btn-rating down" id="rate_down"><%= icon("thumbs-down") %></a>
+
+      <%= link_to icon_label("share-alt", "Skip"), "#", class: "btn btn-large discourage pull-left", id: "rate_skip" %>
+
+      <a href="#" class="btn-rating up" id="rate_up"><%= icon("thumbs-up") %></a>
+    </div>
+
+  <% end %>
+
+</div>
