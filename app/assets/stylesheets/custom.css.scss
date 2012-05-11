@@ -232,6 +232,18 @@ select {
       color: $grayLight;
     }
   }
+
+  .logotype-container {
+    width: 940px;
+    height: 150px;
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 20px;
+
+    img.brand-logotype {
+      margin: 0 auto;
+    }
+  }
 }
 
 .tag-cloud {

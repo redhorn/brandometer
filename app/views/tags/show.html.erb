@@ -2,7 +2,9 @@
 <h1><%= @brand.name %></h1>
 
 <div class="brand-container">
-  <%= logotype_for(@brand) %>
+  <div class="logotype-container">
+    <%= logotype_for(@brand) %>
+  </div>
 
   <h2>What's the first thing that comes to mind when you see this brand?</h2>
   <p>(There is no right or wrong, but try to type a <strong>single word</strong> or a short phrase)</p>
