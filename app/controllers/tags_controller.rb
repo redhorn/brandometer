@@ -13,9 +13,11 @@ class TagsController < ApplicationController
   end
 
   def create
+    # Delete tag value if user chose to skip this brand
+    params[:tag][:value] = '' if params[:skip]
+
     @brand = Brand.find(params[:tag].delete(:brand))
     @tag = Tag.find_or_create_by_value(params[:tag][:value].strip)
-
     TagOccurrence.create(brand: @brand, tag: @tag, user: current_user)
 
     redirect_to tags_path
