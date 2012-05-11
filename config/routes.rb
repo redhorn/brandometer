@@ -7,6 +7,8 @@ Brandometer::Application.routes.draw do
 
   root to: 'static_pages#home'
 
+  match '/test',    to: 'tests#index'
+
   match '/signup',  to: 'users#new'
   match '/finish',  to: 'users#additional_info'
   match '/signin',  to: 'sessions#new'

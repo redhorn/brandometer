@@ -35,24 +35,17 @@ module BrandsHelper
   # value in the center and the rest going down to the right and left.
   # Example: [0, 1, 2, 3, 4, 5, 6] --> [1, 3, 5, 6, 4, 2, 0]
   def center_weight(a)
-    wa = []
+    centered_array = Array.new(a.size)
+    pos = -1
+    count = 0
 
-    i = left = 0
-    right = a.length - 1
-
-    a.each do |item|
-      if i.even?
-        wa[right] = item
-        right = right - 1
-      else
-        wa[left] = item
-        left = left + 1
-      end
-
-      i = i + 1
+    a.each do |item| centered_array[pos] = item
+      count += 1
+      pos < 0 ? pos += count : pos -= count
     end
 
-    return wa
+    return centered_array
   end
+
 
 end

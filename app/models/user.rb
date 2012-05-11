@@ -2,9 +2,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :dateofbirth, :gender, :zipcode
   has_secure_password
 
+  has_many :tag_occurrences
+  has_many :tags, through: :tag_occurrences
+
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
-  #before_validation :secure_auth_level
   before_validation :cleanup_zipcode
   after_validation :format_zipcode
 
