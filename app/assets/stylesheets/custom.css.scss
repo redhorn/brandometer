@@ -179,9 +179,12 @@ select {
 }
 
 .input-prepend .add-on {
+  float: left;
+  display: block;
   min-width: 27px;
   height: 18px;
   padding: 9px 5px;
+  color: #999;
   font-size: 20px;
 }
 
