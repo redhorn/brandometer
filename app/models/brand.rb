@@ -11,6 +11,8 @@ class Brand < ActiveRecord::Base
   validates :name, presence: true
   validates :uid, uniqueness: true
 
+  scope :battles
+
   HUMANIZED_ATTRIBUTES = {
     uid: "Unique identifier"
   }
@@ -24,7 +26,20 @@ class Brand < ActiveRecord::Base
   end
 
   def rating
+    return 0 unless ratings.any?
     ((ratings.sum(:value).to_f / ratings.size.to_f) * 100).round / 100.00
+  end
+
+  def battles
+    Battle.where("loser = ? OR winner = ?", id, id)
+  end
+
+  def battles_lost
+    Battle.where("loser = ?", id)
+  end
+
+  def battles_won
+    Battle.where("winner = ?", id)
   end
 
   private

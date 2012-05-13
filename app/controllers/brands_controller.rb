@@ -1,7 +1,10 @@
 class BrandsController < ApplicationController
 
+  before_filter :signed_in_user, except: [:show]
+  before_filter :admin_user, except: [:show]
+
   def index
-    @brands = Brand.all
+    @brands = Brand.order("name").paginate(page: params[:page])
   end
 
   def show
@@ -32,7 +35,7 @@ class BrandsController < ApplicationController
     @brand = Brand.new(params[:brand])
     if @brand.save
       flash[:success] = "Created brand: #{@brand.name}"
-      redirect_to @brand
+      redirect_to new_brand_path
     else
       render 'new'
     end

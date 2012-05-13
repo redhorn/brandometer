@@ -13,11 +13,11 @@
     <%= f.hidden_field :value %>
 
     <div class="rating-controls">
-      <a href="#" class="btn-rating down" id="rate_down"><%= icon("thumbs-down") %></a>
+      <%= link_to icon("thumbs-down"), "#", class: "btn-rating rating-action down", "data-rating-val" => -1 %>
 
-      <%= link_to icon_label("share-alt", "Skip"), "#", class: "btn btn-large discourage pull-left", id: "rate_skip" %>
+      <%= link_to icon_label("share-alt", "Skip"), "#", class: "btn btn-large discourage pull-left rating-action", id: "rate_skip", "data-rating-val" => 0 %>
 
-      <a href="#" class="btn-rating up" id="rate_up"><%= icon("thumbs-up") %></a>
+      <%= link_to icon("thumbs-up"), "#", class: "btn-rating rating-action up", "data-rating-val" => 1 %>
     </div>
 
   <% end %>

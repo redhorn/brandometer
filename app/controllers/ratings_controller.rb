@@ -3,8 +3,7 @@ class RatingsController < ApplicationController
   def new
     # Always redirect to a random brand if no id is provided
     if !params[:id]
-      random_brand_uid = Brand.first(order: "RANDOM()").uid
-      redirect_to action: "new", id: random_brand_uid
+      redirect_to random_brand
       return
     end
 
@@ -16,7 +15,14 @@ class RatingsController < ApplicationController
     @brand = Brand.find(params[:rating][:brand])
     @rating = Rating.create(brand: @brand, user: current_user, value: params[:rating][:value])
 
-    redirect_to rate_path
+    redirect_to random_brand
   end
+
+  private
+
+    def random_brand
+      random_brand_uid = Brand.first(order: "RANDOM()").uid
+      { action: "new", id: random_brand_uid }
+    end
 
 end

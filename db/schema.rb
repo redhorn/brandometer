@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120513134124) do
+ActiveRecord::Schema.define(:version => 20120513192933) do
 
   create_table "battles", :force => true do |t|
     t.integer  "loser"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20120513134124) do
     t.boolean  "active",     :default => true
     t.boolean  "collecting", :default => true
     t.integer  "elo",        :default => 1500
-    t.float    "wr"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
   end

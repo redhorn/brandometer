@@ -3,10 +3,18 @@
 
 <div class="brand-container">
   <div class="logotype-container">
-    <%= logotype_for(@brand1) %>
-    vs.
-    <%= logotype_for(@brand2) %>
+    <div class="battle-brands">
+      <div class="battle-brand">
+        <%= link_to logotype_for(@brand1), "#", class: "battle-action", "data-brand-id" => @brand1.id %>
+      </div>
+      <div class="battle-brand">
+        <%= link_to logotype_for(@brand2), "#", class: "battle-action", "data-brand-id" => @brand2.id %>
+      </div>
+    </div>
   </div>
+
+  <h2>Which of the brands above do you think is the best?</h2>
+  <p>(Click on the corresponding logotype)</p>
 
   <%= form_for(@battle, html: { class: "new_battle" }) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
