@@ -23,6 +23,10 @@ class Brand < ActiveRecord::Base
     HUMANIZED_ATTRIBUTES[attribute.to_sym] || super
   end
 
+  def rating
+    ((ratings.sum(:value).to_f / ratings.size.to_f) * 100).round / 100.00
+  end
+
   private
 
     def cleanup_name

@@ -11,5 +11,7 @@
   <div class="span8">
     <h2>Tag cloud</h2>
     <%= tag_cloud_for(@brand) %>
+    <h2>Rating <%= votes_for(@brand) %></h2>
+    <%= rating_for(@brand) %>
   </div>
 </div>

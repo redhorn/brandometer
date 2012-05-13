@@ -213,7 +213,7 @@ a.btn-rating {
   float: left;
 
   &.down {
-    margin-top: 11px;
+    margin-top: 10px;
     margin-right: 30px;
   }
   &.up {
@@ -300,10 +300,33 @@ a.btn-rating {
   margin: 0 auto;
   text-align: center;
   width: 480px;
+  margin-bottom: 60px;
 
   span {
     margin-right: 5px;
     white-space: nowrap;
+  }
+}
+
+.rating-bar-container {
+  width: 400px;
+  background: $grayLighter;
+  margin: 0 auto;
+  @include border_radius(3px);
+
+  .rating-bar {
+    height: 20px;
+    @include border_radius(3px);
+
+    &.rating-bad {
+      background: #dd1b1b;
+    }
+    &.rating-alright {
+      background: #ffe100;
+    }
+    &.rating-good {
+      background: #21a310;
+    }
   }
 }
 
@@ -317,6 +340,9 @@ img.brand-logotype {
 .nowrap {
   white-space: nowrap;
 }
+
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
+.ir br { display: none; }
 
 /* media queries */
 

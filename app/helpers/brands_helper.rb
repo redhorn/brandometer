@@ -4,6 +4,27 @@ module BrandsHelper
     image_tag("logotypes/#{brand.uid}_logotype.png", options.merge({ class: "brand-logotype" }))
   end
 
+  def votes_for(brand)
+    content_tag(:small, "(#{brand.ratings.size} votes)")
+  end
+
+  def rating_for(brand)
+    midpoint = 200
+    bar = content_tag(:div, brand.rating, class: "ir rating-bar rating-#{rating_grade(brand.rating)}", style: "width: #{brand.rating * midpoint + midpoint}px;")
+    content_tag(:div, bar, class: "rating-bar-container")
+  end
+
+  def rating_grade(rating)
+    case rating
+    when -1..-0.3
+      "bad"
+    when -0.3..0.3
+      "alright"
+    when 0.3..1
+      "good"
+    end
+  end
+
   def tag_cloud_for(brand)
     # Put all unique tags in a hash and count them individually
     tags = {}
