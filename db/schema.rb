@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120511120705) do
+ActiveRecord::Schema.define(:version => 20120513134124) do
+
+  create_table "battles", :force => true do |t|
+    t.integer  "loser"
+    t.integer  "winner"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "battles", ["loser"], :name => "index_battles_on_loser"
+  add_index "battles", ["user_id"], :name => "index_battles_on_user_id"
+  add_index "battles", ["winner"], :name => "index_battles_on_winner"
 
   create_table "brands", :force => true do |t|
     t.string   "name"

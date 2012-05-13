@@ -1,6 +1,7 @@
 var documentReady = false;
 
-jQuery(document).bind("ready", function() {
+$(function() {
+  console.log("ratings")
   if (documentReady) {
     return
   } else {

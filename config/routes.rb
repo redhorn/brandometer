@@ -5,6 +5,7 @@ Brandometer::Application.routes.draw do
   resources :brands
   resources :tags, only: [:create]
   resources :ratings, only: [:create]
+  resources :battles, only: [:create]
 
   root to: 'static_pages#home'
 
@@ -20,6 +21,9 @@ Brandometer::Application.routes.draw do
 
   match '/rate',    to: 'ratings#new', via: :get
   match '/rate/:id',to: 'ratings#new'
+
+  match '/battle', to: 'battles#new', via: :get
+  match '/battle/:brand1/:brand2', to: 'battles#new'
 
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
