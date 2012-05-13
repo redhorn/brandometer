@@ -1,5 +1,14 @@
 module BrandsHelper
 
+  def random_brand
+    Brand.first(order: "RANDOM()")
+  end
+
+  def random_brand_path
+    random_brand_uid = Brand.first(order: "RANDOM()").uid
+    { action: "new", id: random_brand_uid }
+  end
+
   def logotype_for(brand, options = {})
     image_tag("logotypes/#{brand.uid}_logotype.png", options.merge({ class: "brand-logotype" }))
   end

@@ -1,9 +1,10 @@
 class TagsController < ApplicationController
+  include BrandsHelper
 
   def new
     # Always redirect to a random brand if no id is provided
     if !params[:id]
-      redirect_to random_brand
+      redirect_to random_brand_path
       return
     end
 
@@ -19,14 +20,12 @@ class TagsController < ApplicationController
     @tag = Tag.find_or_create_by_value(params[:tag][:value].strip)
     TagOccurrence.create(brand: @brand, tag: @tag, user: current_user)
 
-    redirect_to random_brand
-  end
+    @next_brand = random_brand
 
-  private
-
-    def random_brand
-      random_brand_uid = Brand.first(order: "RANDOM()").uid
-      { action: "new", id: random_brand_uid }
+    respond_to do |format|
+      format.html { redirect_to random_brand_path }
+      format.js
     end
+  end
 
 end

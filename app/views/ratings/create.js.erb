@@ -1,0 +1,6 @@
+$('title').html("Rate <%= @next_brand.name %>");
+$('h1').html("<%= @next_brand.name %>");
+$('.logotype-container').html('<%= logotype_for(@next_brand) %>');
+$('#rating_brand').val(<%= @next_brand.id %>);
+var stateObj = { page: "/rate/<%= @next_brand.uid %>" };
+history.pushState(stateObj, "Rate <%= @next_brand.name %>", "/rate/<%= @next_brand.uid %>");

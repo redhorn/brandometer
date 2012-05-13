@@ -1,0 +1,7 @@
+$('title').html("Tag <%= @next_brand.name %>");
+$('h1').html("<%= @next_brand.name %>");
+$('.logotype-container').html('<%= logotype_for(@next_brand) %>');
+$('#tag_brand').val(<%= @next_brand.id %>);
+$('#tag_value').val('');
+var stateObj = { page: "/tag/<%= @next_brand.uid %>" };
+history.pushState(stateObj, "Tag <%= @next_brand.name %>", "/tag/<%= @next_brand.uid %>");

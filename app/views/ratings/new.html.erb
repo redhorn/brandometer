@@ -6,7 +6,7 @@
     <%= logotype_for(@brand) %>
   </div>
 
-  <%= form_for(@rating) do |f| %>
+  <%= form_for(@rating, remote: true) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
     <%= hidden_field_tag "rating[brand]", @brand.id %>

@@ -9,7 +9,7 @@
   <h2>What's the first thing that comes to mind when you see this brand?</h2>
   <p>(There is no right or wrong, but try to type a <strong>single word</strong> or a short phrase)</p>
 
-  <%= form_for(@tag, html: { class: "new_tag form-horizontal" }) do |f| %>
+  <%= form_for(@tag, remote: true, html: { class: "new_tag form-horizontal" }) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
     <%= hidden_field_tag "tag[brand]", @brand.id %>

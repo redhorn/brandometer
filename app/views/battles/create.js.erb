@@ -1,0 +1,8 @@
+$('title').html("Battle <%= @next_brand1.name %> vs. <%= @next_brand2.name %>");
+$('h1').html("<%= @next_brand1.name %> vs. <%= @next_brand2.name %>");
+$('.battle-action:first').html('<%= logotype_for(@next_brand1) %>').attr("data-brand-id", "<%= @next_brand1.id %>");
+$('.battle-action:last').html('<%= logotype_for(@next_brand2) %>').attr("data-brand-id", "<%= @next_brand2.id %>");
+$('#battle_brand1').val(<%= @next_brand1.id %>);
+$('#battle_brand2').val(<%= @next_brand2.id %>);
+var stateObj = { page: "/battle/<%= @next_brand1.uid %>/<%= @next_brand2.uid %>" };
+history.pushState(stateObj, "Battle <%= @next_brand1.name %> vs. <%= @next_brand2.name %>", "/battle/<%= @next_brand1.uid %>/<%= @next_brand2.uid %>");
