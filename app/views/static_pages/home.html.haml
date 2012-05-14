@@ -1,0 +1,32 @@
+.center.hero-unit
+  - if signed_in?
+    %h1 Brand-o-meter
+    %h2= t('.h2')
+    %p
+      Begin by either
+      = link_to "tagging", tag_path
+      or
+      = link_to "rating", rate_path
+      a brand. Or let them
+      = link_to "battle", battle_path
+      it out!
+  - else
+    %h1= t('.h1')
+    %h2= t('.h2')
+    = link_to t('.signupnow'), signup_path, class: "btn btn-large btn-primary"
+.row
+  .span4.action-box
+    %a{ href: tag_path }
+      .icon-holder
+        %i.icon-tag
+      .action= t('.tag')
+  .span4.action-box
+    %a{ href: rate_path }
+      .icon-holder
+        %i.icon-star
+      .action= t('.rate')
+  .span4.action-box
+    %a{ href: battle_path }
+      .icon-holder
+        %i.icon-fire
+      .action= t('.battle')
