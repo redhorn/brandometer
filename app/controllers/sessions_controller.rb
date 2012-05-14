@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_back_or root_path
     else
-      flash[:error] = 'Invalid e-mail or password'
+      flash[:error] = I18n.t('controllers.sessions.create.flash.invalid')
       redirect_to signin_path
     end
   end

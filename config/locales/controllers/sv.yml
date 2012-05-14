@@ -1,0 +1,13 @@
+sv:
+  controllers:
+    sessions:
+      create:
+        flash:
+          invalid: "Felaktig användarnamn- och lösenordskombination"
+    users:
+      update:
+        flash:
+          profile:
+            complete: "Tack för att du färdigställde din profil, och välkommen till Brand-o-meter!"
+            incomplete: "Du är nu inloggad. Välkommen till Brand-o-meter!"
+            updated: "Din profil är nu uppdaterad"

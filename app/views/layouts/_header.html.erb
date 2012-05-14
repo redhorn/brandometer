@@ -4,19 +4,19 @@
       <%= link_to "Brand-o-meter", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to icon_label("tag", "Tag"), tag_path %></li>
-          <li><%= link_to icon_label("star", "Rate"), rate_path %></li>
-          <li><%= link_to icon_label("fire", "Battle"), battle_path %></li>
+          <li><%= link_to icon_label("tag", t('.tag')), tag_path %></li>
+          <li><%= link_to icon_label("star", t('.rate')), rate_path %></li>
+          <li><%= link_to icon_label("fire", t('.battle')), battle_path %></li>
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
+                <%=t ('.account') %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li><span><%= icon_label("user", current_user.name) %></span></li>
-                <li><%= link_to icon_label("cog", "Settings"), edit_user_path(current_user) %></li>
+                <li><%= link_to icon_label("cog", t('.settings')), edit_user_path(current_user) %></li>
                 <li class="divider"></li>
-                <li><%= link_to icon_label("signout", "Sign out"), signout_path, method: "delete" %></li>
+                <li><%= link_to icon_label("signout", t('.signout')), signout_path, method: "delete" %></li>
               </ul>
             </li>
             <% if current_user.admin? %>
@@ -33,7 +33,7 @@
             </li>
             <% end %>
           <% else %>
-            <li><%= link_to icon_label("signin", "Sign in"), signin_path %></li>
+            <li><%= link_to icon_label("signin", t('.signin')), signin_path %></li>
           <% end %>
         </ul>
       </nav>

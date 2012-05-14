@@ -1,5 +1,5 @@
-<% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
+<% provide(:title, t('.title')) %>
+<h1><%=t '.h1' %></h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -7,17 +7,17 @@
 
     <div class="input-prepend">
       <span class="add-on"><%= icon("envelope") %></span>
-      <%= text_field_tag :email, "", placeholder: "E-mail", autofocus: "autofocus" %>
+      <%= text_field_tag :email, "", placeholder: User.human_attribute_name(:email), autofocus: "autofocus" %>
     </div>
 
     <div class="input-prepend">
       <span class="add-on"><%= icon("key") %></span>
-      <%= password_field_tag :password, "", placeholder: "Password" %>
+      <%= password_field_tag :password, "", placeholder: User.human_attribute_name(:password) %>
     </div>
 
-      <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+      <%= submit_tag t('.signin'), class: "btn btn-large btn-primary" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p><%=t '.new_user' %> <%= link_to t('.signup'), signup_path %></p>
   </div>
 </div>

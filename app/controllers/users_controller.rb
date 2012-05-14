@@ -50,10 +50,10 @@ class UsersController < ApplicationController
       sign_in @user if current_user?(@user)
 
       if (source == "finish")
-        flash[:success] = (@user.complete?) ? "Thank you for completing your profile, and welcome to Brand-o-meter!" : "You are now logged in. Welcome to Brand-o-meter!"
+        flash[:success] = @user.complete? ? I18n.t('controllers.users.update.flash.profile.complete') : I18n.t('controllers.users.update.flash.profile.incomplete')
         redirect_to root_path
       else
-        flash[:success] = "Profile updated"
+        flash[:success] = I18n.t('controllers.users.update.flash.profile.updated')
         redirect_to edit_user_path
       end
     else

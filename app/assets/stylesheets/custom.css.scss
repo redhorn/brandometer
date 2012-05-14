@@ -128,6 +128,10 @@ footer {
 
 /* miscellaneous */
 
+.hero-unit {
+  padding: 70px 50px 50px 50px;
+}
+
 .debug_dump {
   clear: both;
   float: left;
@@ -149,10 +153,6 @@ input, textarea, select, .uneditable-input {
   height: auto;
   margin-bottom: 15px;
   @include box_sizing;
-}
-
-.btn-primary {
-  margin-bottom: 5px;
 }
 
 .checkbox-group {
@@ -196,13 +196,16 @@ select {
   }
 }
 
+.discourage {
+  color: $grayLight;
+}
+
 /* ratings */
 
 .rating-controls {
-  float: left;
-  width: 614px;
-  margin-left: 336px;
-  margin-bottom: 40px;
+  width: 400px;
+  margin: 0 auto 40px auto;
+  text-align: center;
 
   .btn {
     margin-top: 10px;
@@ -212,15 +215,12 @@ select {
 a.btn-rating {
   font-size: 80px;
   text-decoration: none;
-  display: block;
-  float: left;
 
   &.down {
-    margin-top: 10px;
+    vertical-align: text-bottom;
     margin-right: 30px;
   }
   &.up {
-    margin-top: -12px;
     margin-left: 30px;
   }
 }
@@ -294,10 +294,6 @@ a.btn-rating {
     input[type=text] {
       width: 300px;
     }
-  }
-
-  .discourage {
-    color: $grayLight;
   }
 
   .logotype-container {

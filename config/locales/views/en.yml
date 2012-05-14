@@ -1,0 +1,50 @@
+en:
+  static_pages:
+    home:
+      h1: "Welcome to Brand-o-meter"
+      h2: "Join us on our quest to find out what people really think about brands."
+      signupnow: "Sign up now!"
+      tag: "Tag!"
+      rate: "Rate!"
+      battle: "Battle!"
+    about:
+      h1: "About"
+    contact:
+      h1: "Contact"
+  tags:
+    new:
+      title: "Tag"
+      h2: "What's the first thing that comes to mind when you see this brand?"
+      instructions_html: "(There is no right or wrong, but try to type a <strong>single word</strong> or a short phrase)"
+      tag: "Tag!"
+      skip: "Skip this one"
+  ratings:
+    new:
+      title: "Rate"
+      skip: "Skip"
+  battles:
+    new:
+      title: "Battle"
+      h2: "Which of the brands above do you think is the best?"
+      instructions: "(Click on the corresponding logotype)"
+  users:
+    new:
+      title: "Sign up"
+      h1: "Sign up"
+      create_account: "Create my account"
+    additional_info:
+      title: "Additional information"
+      h1: "Complete your profile"
+      done: Done!
+      later: "I'll do this later"
+    edit:
+      title: "Update profile"
+      edit_user: "Edit user %{name}"
+      update_profile: "Update your profile"
+  sessions:
+    new:
+      title: "Sign in"
+      h1: "Sign in"
+      signin: "Sign in"
+      new_user: "New user?"
+      signup: "Sign up now!"

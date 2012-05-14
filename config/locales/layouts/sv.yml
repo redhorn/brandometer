@@ -1,0 +1,16 @@
+sv:
+  layouts:
+    header:
+      tag: Tagga
+      rate: "Sätt betyg"
+      battle: "Duellera"
+      signin: "Logga in"
+      account: Konto
+      settings: Inställningar
+      signout: "Logga ut"
+    footer:
+      copyright: "av Joel Lundberg & Carl Magnus Swahn"
+      about: "Om oss"
+      contact: Kontakt
+    errors:
+      form_contains: "Formuläret innehåller %{count} fel"

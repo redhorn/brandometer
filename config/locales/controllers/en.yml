@@ -1,0 +1,13 @@
+en:
+  controllers:
+    sessions:
+      create:
+        flash:
+          invalid: "Invalid e-mail or password"
+    users:
+      update:
+        flash:
+          profile:
+            complete: "Thank you for completing your profile, and welcome to Brand-o-meter!"
+            incomplete: "You are now logged in. Welcome to Brand-o-meter!"
+            updated: "Profile updated"

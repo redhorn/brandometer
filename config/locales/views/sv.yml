@@ -1,0 +1,50 @@
+sv:
+  static_pages:
+    home:
+      h1: "Välkommen till Brand-o-meter"
+      h2: "Vi tar tempen på svenska varumärken!"
+      signupnow: "Registrera ett konto nu!"
+      tag: "Tagga!"
+      rate: "Sätt betyg!"
+      battle: "Duellera!"
+    about:
+      h1: "Om oss"
+    contact:
+      h1: "Kontakt"
+  tags:
+    new:
+      title: "Tagga"
+      h2: "Vad är det första du tänker på när du ser varumärket?"
+      instructions_html: "(Det finns inget rätt eller fel, men bara <strong>ett ord</strong> eller en kort fras tack)"
+      tag: "Tagga!"
+      skip: "Hoppa över"
+  ratings:
+    new:
+      title: "Sätt betyg på"
+      skip: "Hoppa över"
+  battles:
+    new:
+      title: "Duellera"
+      h2: "Vilket av ovanstående varumärken anser du vara det bästa?"
+      instructions: "(Klicka på motsvarande logotyp)"
+  users:
+    new:
+      title: "Registrera konto"
+      h1: "Registrera konto"
+      create_account: "Skapa mitt konto"
+    additional_info:
+      title: "Ytterligare information"
+      h1: "Färdigställ din profil"
+      done: Klar!
+      later: "Jag gör det här senare"
+    edit:
+      title: "Uppdatera profil"
+      edit_user: "Redigera användare %{name}"
+      update_profile: "Uppdatera din profil"
+  sessions:
+    new:
+      title: "Logga in"
+      h1: "Logga in"
+      signin: "Logga in"
+      new_user: "Ny användare?"
+      signup: "Registrera ett konto nu!"

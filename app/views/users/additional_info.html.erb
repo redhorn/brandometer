@@ -1,5 +1,5 @@
-<% provide(:title, "Additional information") %>
-<h1>Complete your profile</h1>
+<% provide(:title, t('.title')) %>
+<h1><%=t '.h1' %></h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -8,17 +8,17 @@
 
       <input type="hidden" name="source" value="finish">
 
-      <%= f.label :dateofbirth, "Date of birth" %>
+      <%= f.label :dateofbirth %>
       <%= date_select :user, :dateofbirth, { start_year: Time.now.year, end_year: Time.now.year - 100, prompt: true}, { class: 'dateofbirth' } %>
 
-      <%= f.label :gender, "Gender" %>
+      <%= f.label :gender %>
       <%= select :user, :gender, [ ["Male", 1], ["Female", 2] ], { include_blank: "Select gender"}, { class: 'gender' } %>
 
       <%= f.label :zipcode %>
       <%= f.text_field :zipcode, maxlength: 6 %>
 
-      <%= f.submit "Done!", class: "btn btn-large btn-primary" %>
-      <%= link_to "I'll do this later", root_path, class: "btn btn-large" %>
+      <%= f.submit t('.done'), class: "btn btn-large btn-primary" %>
+      <%= f.submit t('.later'), class: "btn btn-large discourage" %>
 
       <!--<%= link_to("Permanently remove my account", @user, method: :delete, confirm: "You sure?", class: 'pull-right') %>-->
   <% end %>

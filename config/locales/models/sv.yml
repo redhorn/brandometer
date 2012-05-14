@@ -1,0 +1,14 @@
+sv:
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        name: Namn
+        email: E-post
+        dateofbirth: Födelsedag
+        gender: Kön
+        zipcode: Postnummer
+        password: Lösenord
+        password_digest: Lösenord
+        password_confirmation: "Upprepa lösenord"

@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        name: Name
+        email: E-mail
+        dateofbirth: "Date of birth"
+        gender: Gender
+        zipcode: "Zip code"
+        password: Password
+        password_digest: Password
+        password_confirmation: "Password confirmation"

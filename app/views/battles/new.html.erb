@@ -1,4 +1,4 @@
-<% provide(:title, "Battle #{@brand1.name} vs. #{@brand2.name}") %>
+<% provide(:title, "#{t('.title')} #{@brand1.name} vs. #{@brand2.name}") %>
 <h1><%= @brand1.name %> vs. <%= @brand2.name %></h1>
 
 <div class="brand-container">
@@ -13,8 +13,8 @@
     </div>
   </div>
 
-  <h2>Which of the brands above do you think is the best?</h2>
-  <p>(Click on the corresponding logotype)</p>
+  <h2><%=t '.h2' %></h2>
+  <p><%=t '.instructions' %></p>
 
   <%= form_for(@battle, remote: true, html: { class: "new_battle" }) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>

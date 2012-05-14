@@ -1,5 +1,5 @@
-<% provide(:title, "Update profile") %>
-<% h1 = (current_user.admin? and !current_user?(@user)) ? "Edit user #{@user.name}" : "Update your profile" %>
+<% provide(:title, t('.title')) %>
+<% h1 = (current_user.admin? and !current_user?(@user)) ? t('.edit_user', name: @user.name) : t('.update_profile') %>
 <h1><%= h1 %></h1>
 
 <div class="row">
@@ -7,10 +7,10 @@
   <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
-    <%= f.label :dateofbirth, "Date of birth" %>
+    <%= f.label :dateofbirth %>
     <%= date_select :user, :dateofbirth, { start_year: Time.now.year, end_year: Time.now.year - 100, prompt: true}, { class: 'dateofbirth' } %>
 
-    <%= f.label :gender, "Gender" %>
+    <%= f.label :gender %>
     <%= select :user, :gender, [ ["Male", 1], ["Female", 2] ], { include_blank: "Select gender"}, { class: 'gender' } %>
 
     <%= f.label :zipcode %>
@@ -30,7 +30,7 @@
     <%= f.label :password %>
     <%= f.password_field :password %>
 
-    <%= f.label :password_confirmation, "Confirm Password" %>
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
 
     <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>

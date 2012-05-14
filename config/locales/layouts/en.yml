@@ -1,0 +1,18 @@
+en:
+  layouts:
+    header:
+      tag: "Tag"
+      rate: "Rate"
+      battle: "Battle"
+      signin: "Sign in"
+      account: Account
+      settings: Settings
+      signout: "Sign out"
+    footer:
+      copyright: "by Joel Lundberg & Carl Magnus Swahn"
+      about: "About"
+      contact: "Contact"
+    errors:
+      form_contains:
+        one: "The form contains 1 error"
+        other: "The form contains %{count} errors"
