@@ -1,0 +1,16 @@
+- provide(:title, "#{t('.title')} #{@brand.name}")
+%h1= @brand.name
+
+.brand-container
+  .logotype-container
+    = logotype_for(@brand)
+
+  .rating-controls
+    = link_to icon('thumbs-down'), '#', class: 'btn-rating rating-action down', 'data-rating-val' => -1
+    = link_to icon_label('share-alt', t('.skip')), '#', class: 'btn btn-large discourage rating-action', id: 'rate_skip', 'data-rating-val' => 0
+    = link_to icon('thumbs-up'), '#', class: 'btn-rating rating-action up', 'data-rating-val' => 1
+= form_for(@rating, remote: true) do |f|
+  = render 'shared/error_messages', object: f.object
+
+  = hidden_field_tag 'rating[brand]', @brand.id
+  = f.hidden_field :value

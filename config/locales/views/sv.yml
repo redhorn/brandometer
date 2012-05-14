@@ -35,12 +35,19 @@ sv:
     additional_info:
       title: "Ytterligare information"
       h1: "Färdigställ din profil"
+      male: Man
+      female: Kvinna
+      select_gender: Välj
       done: Klar!
       later: "Jag gör det här senare"
     edit:
       title: "Uppdatera profil"
       edit_user: "Redigera användare %{name}"
       update_profile: "Uppdatera din profil"
+      male: Man
+      female: Kvinna
+      select_gender: Välj
+      save: "Spara ändringar"
   sessions:
     new:
       title: "Logga in"

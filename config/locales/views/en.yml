@@ -35,12 +35,19 @@ en:
     additional_info:
       title: "Additional information"
       h1: "Complete your profile"
+      male: Male
+      female: Female
+      select_gender: Choose
       done: Done!
       later: "I'll do this later"
     edit:
       title: "Update profile"
       edit_user: "Edit user %{name}"
       update_profile: "Update your profile"
+      male: Male
+      female: Female
+      select_gender: Choose
+      save: "Save changes"
   sessions:
     new:
       title: "Sign in"

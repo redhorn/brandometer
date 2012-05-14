@@ -1,0 +1,15 @@
+- provide(:title, "#{t('.title')} #{@brand1.name} vs. #{@brand2.name}")
+%h1= "#{@brand1.name} vs. #{@brand2.name}"
+.brand-container
+  .logotype-container
+    .battle-brands
+      .battle-brand= link_to logotype_for(@brand1), '#', class: 'battle-action', 'data-brand-id' => @brand1.id
+      .battle-brand= link_to logotype_for(@brand2), '#', class: 'battle-action', 'data-brand-id' => @brand2.id
+  %h2= t('.h2')
+  %p= t('.instructions')
+
+  = form_for(@battle, remote: true, html: { class: 'new_battle' }) do |f|
+    = render 'shared/error_messages', object: f.object
+    = hidden_field_tag 'battle[brand1]', @brand1.id
+    = hidden_field_tag 'battle[brand2]', @brand2.id
+    = hidden_field_tag 'battle[winner]', ''

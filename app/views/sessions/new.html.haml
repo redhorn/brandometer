@@ -1,0 +1,18 @@
+- provide(:title, t('.title'))
+%h1= t('.h1')
+
+.row
+  .span6.offset3
+    = form_tag sessions_path do
+      .input-prepend
+        %span.add-on= icon('envelope')
+        = text_field_tag :email, '', placeholder: User.human_attribute_name(:email), autofocus: 'autofocus'
+      .input-prepend
+        %span.add-on= icon('key')
+        = password_field_tag :password, '', placeholder: User.human_attribute_name(:password)
+
+      = submit_tag t('.signin'), class: 'btn btn-large btn-primary'
+
+    %p
+      = t('.new_user')
+      = link_to t('.signup'), signup_path

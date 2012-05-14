@@ -1,0 +1,21 @@
+- provide(:title, t('.title'))
+%h1= t('.h1')
+
+.row
+  .span6.offset3
+    = form_for(@user) do |f|
+      = render 'shared/error_messages', object: f.object
+
+      %input{ type: 'hidden', name: 'source', value: 'finish' }
+
+      = f.label :dateofbirth
+      = date_select :user, :dateofbirth, { start_year: Time.now.year, end_year: Time.now.year - 100, prompt: true}, { class: 'dateofbirth' }
+
+      = f.label :gender
+      = select :user, :gender, [ [t('.male'), 1], [t('.female'), 2] ], { include_blank: t('.select_gender')}, { class: 'gender' }
+
+      = f.label :zipcode
+      = f.text_field :zipcode, maxlength: 6
+
+      = f.submit t('.done'), class: 'btn btn-large btn-primary'
+      = f.submit t('.later'), class: 'btn btn-large discourage'

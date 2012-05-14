@@ -1,0 +1,24 @@
+- provide(:title, "Edit #{@brand.name}")
+%h1= "Update #{@brand.name}"
+.row
+  .span6.offset3
+    = form_for(@brand) do |f|
+      = render 'shared/error_messages', object: f.object
+      = f.label :name
+      = f.text_field :name
+
+      = f.label :uid, 'Unique identifier (permalink)'
+      = f.text_field :uid
+
+      .checkbox-group
+        %label.checkbox{ for: 'brand_active'}
+          = f.check_box :active
+          Active
+        %label.checkbox{ for: 'brand_collecting'}
+          = f.check_box :collecting
+          Collecting
+
+      = f.label :elo, 'ELO Rating'
+      = f.text_field :elo, disabled: true
+
+      = f.submit 'Save changes', class: 'btn btn-large btn-primary'

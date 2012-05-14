@@ -1,0 +1,11 @@
+- provide(:title, @brand.name)
+.row
+  %aside.span4
+    %section
+      %h1= @brand.name
+      = logotype_for(@brand)
+  .span8
+    %h2 Tag cloud
+    = tag_cloud_for(@brand)
+    %h2= "Rating #{votes_for(@brand)}".html_safe
+    = rating_for(@brand)

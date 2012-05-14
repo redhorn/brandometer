@@ -1,0 +1,39 @@
+- provide(:title, t('.title'))
+%h1= (current_user.admin? and !current_user?(@user)) ? t('.edit_user', name: @user.name) : t('.update_profile')
+
+.row
+  .span6.offset3
+    = form_for(@user) do |f|
+      = render 'shared/error_messages', object: f.object
+
+      = f.label :dateofbirth
+      = date_select :user, :dateofbirth, { start_year: Time.now.year, end_year: Time.now.year - 100, prompt: true}, { class: 'dateofbirth' }
+
+      = f.label :gender
+      = select :user, :gender, [ [t('.male'), 1], [t('.female'), 2] ], { include_blank: t('.select_gender')}, { class: 'gender' }
+
+      = f.label :zipcode
+      = f.text_field :zipcode, maxlength: 6
+
+      - if current_user.admin?
+        = f.label :auth_level, 'Access level'
+        = select :user, :auth_level, 1..10, {}, { class: 'authlevel' }
+
+      = f.label :name
+      = f.text_field :name
+
+      = f.label :email, 'E-mail'
+      = f.text_field :email
+
+      = f.label :password
+      = f.password_field :password
+
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+
+      = f.submit t('.save'), class: 'btn btn-large btn-primary'
+
+      - if current_user.admin? and !@user.admin?
+        = link_to 'Delete', @user, method: :delete, confirm: 'Are you sure?', class: 'btn btn-large btn-danger pull-right'
+
+    //= link_to('Permanently remove my account', @user, method: :delete, confirm: 'Are you sure?', class: 'pull-right')

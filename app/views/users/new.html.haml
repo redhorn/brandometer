@@ -1,0 +1,25 @@
+- provide(:title, t('.title'))
+%h1= t('.h1')
+
+.row
+  .span6.offset3
+    = form_for(@user) do |f|
+      = render 'shared/error_messages', object: f.object
+
+      .input-prepend
+        %span.add-on= icon('user')
+        = f.text_field :name, autofocus: 'autofocus', placeholder: User.human_attribute_name(:name)
+
+      .input-prepend
+        %span.add-on= icon('envelope')
+        = f.text_field :email, placeholder: User.human_attribute_name(:email)
+
+      .input-prepend
+        %span.add-on= icon('key')
+        = f.password_field :password, placeholder: User.human_attribute_name(:password)
+
+      .input-prepend
+        %span.add-on= icon('key')
+        = f.password_field :password_confirmation, placeholder: User.human_attribute_name(:password_confirmation)
+
+      = f.submit t('.create_account'), class: 'btn btn-large btn-primary'
