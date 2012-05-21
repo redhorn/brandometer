@@ -4,8 +4,8 @@ module BrandsHelper
     Brand.first(order: "RANDOM()")
   end
 
-  def random_brand_path
-    random_brand_uid = Brand.first(order: "RANDOM()").uid
+  def random_brand_path(exclude = nil)
+    random_brand_uid = Brand.where("NOT id = ?", exclude ? exclude : 0).first(order: "RANDOM()").uid
     { action: "new", id: random_brand_uid }
   end
 

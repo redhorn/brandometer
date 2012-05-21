@@ -19,7 +19,7 @@ class RatingsController < ApplicationController
     @next_brand = random_brand
 
     respond_to do |format|
-      format.html { redirect_to random_brand_path }
+      format.html { redirect_to random_brand_path(@brand.id) }
       format.js
     end
   end
